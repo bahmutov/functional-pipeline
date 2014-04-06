@@ -13,7 +13,7 @@ Install and use under Node:
 
 ```
 npm install functional-pipeline --save
-var d3h = require('functional-pipeline');
+var fp = require('functional-pipeline');
 ```
 
 Install and use in browser using bower:

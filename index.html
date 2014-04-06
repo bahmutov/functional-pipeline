@@ -2,21 +2,29 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>d3-helpers</title>
+    <title>functional-pipeline</title>
     <script src="index.js"></script>
   </head>
   <body>
-    <h1>d3-helpers</h1>
+    <h1>functional-pipeline</h1>
     <script>
-    if (typeof d3h === 'undefined') {
-      throw new Error('Cannot find d3h object');
-    }
-    console.log('Found d3 helpers object');
-    for (prop in d3h) {
-      if (d3h.hasOwnProperty(prop)) {
-        console.log('d3h.' + prop);
+    (function (fp) {
+      if (typeof fp === 'undefined') {
+        throw new Error('Cannot find fp object');
       }
-    }
+      console.log('Found fp object');
+      function triple(x) { return 3 * x; }
+      function add2(x) { return x + 2; }
+      var data = {
+        age: 10,
+        getAge: function () { return this.age; }
+      };
+      var pipeline = fp('getAge', triple, add2);
+      var result = pipeline(data);
+      if (result !== 32) {
+        throw new Error('invalid result ' + result);
+      }
+    }(window.fp));
     </script>
   </body>
 </html>
