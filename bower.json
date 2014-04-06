@@ -1,8 +1,8 @@
 {
-  "name": "d3-helpers",
+  "name": "functional-pipeline",
   "main": "index.js",
-  "version": "0.2.1",
-  "homepage": "https://github.com/bahmutov/d3-helpers",
+  "version": "0.1.0",
+  "homepage": "https://github.com/bahmutov/functional-pipeline",
   "license": "MIT",
   "ignore": [
     "**/.*",
@@ -16,7 +16,7 @@
   ],
   "author": "Gleb Bahmutov <gleb.bahmutov@gmail.com>",
   "keywords": [
-    "D3",
+    "pipeline",
     "helpers",
     "utility",
     "functional",

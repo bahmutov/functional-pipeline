@@ -26,6 +26,42 @@ bower install functional-pipeline
 
 ## Example
 
+Assuming this common code:
+
+```js
+function triple(x) { return 3 * x; }
+function add2(x) { return x + 2; }
+var data = {
+  age: 10,
+  getAge: function () { return this.age; }
+};
+```
+
+You can express in single line
+
+```js
+var pipeline = fp('getAge', triple, add2);
+```
+
+what usually takes several compositions that are read from inside out
+
+```js
+function pipeline(obj) {
+  return add2(triple(obj.getAge()));
+}
+```
+
+## Why?
+
+Clear code is good code. Functional pipeline makes it easy:
+
+* Reading chained pipeline left to right is natural
+* Having no branches (they should be encapsulated inside functions) lowers complexity
+* Compose multiple small functions makes code modular and easy to test
+
+I especially recommend using functional pipelines for callbacks,
+replacing code with prebuilt and testable pipelines.
+
 ### Small print
 
 Author: Gleb Bahmutov &copy; 2014

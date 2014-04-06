@@ -1,15 +1,14 @@
 {
-  "name": "d3-helpers",
-  "description": "Little utility D3 functions",
-  "version": "0.2.1",
+  "name": "functional-pipeline",
+  "description": "Quickly chain method calls, property access and functions in natural left to right expression",
+  "version": "0.1.0",
   "author": "Gleb Bahmutov <gleb.bahmutov@gmail.com>",
   "bugs": {
-    "url": "https://github.com/bahmutov/d3-helpers/issues"
+    "url": "https://github.com/bahmutov/functional-pipeline/issues"
   },
   "dependencies": {},
   "devDependencies": {
     "coveralls": "^2.10.0",
-    "d3": "^3.4.4",
     "expect.js": "^0.3.1",
     "grunt": "^0.4.4",
     "grunt-banner": "^0.2.2",
@@ -32,15 +31,14 @@
     "matchdep": "^0.3.0",
     "mocha": "^1.18.2",
     "pre-git": "0.0.15",
-    "sinon": "^1.9.0",
     "time-grunt": "^0.3.1"
   },
   "engines": {
     "node": "> 0.8"
   },
-  "homepage": "https://github.com/bahmutov/d3-helpers",
+  "homepage": "https://github.com/bahmutov/functional-pipeline",
   "keywords": [
-    "D3",
+    "pipeline",
     "helpers",
     "utility",
     "functional",
@@ -55,7 +53,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git@github.com:bahmutov/d3-helpers.git"
+    "url": "git@github.com:bahmutov/functional-pipeline.git"
   },
   "scripts": {
     "test": "grunt test",
