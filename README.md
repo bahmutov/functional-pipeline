@@ -76,13 +76,13 @@ items = _.sortBy(items, function(item) {
 ```
 
 1. Grab `latest_event` property
-2. Grab 'datetime' property
-3. Create new *Date* object from result of the previous step
+2. Grab `datetime` property
+3. Create `new Date` object from result of the previous step
 4. Return the created date.
 
-Reading the steps starting in the middle left to right, then switching
-to right to left back at the start of the line is unnatural to me. Here is the same
-sequence using *functional-pipeline*. The return operation is implicit.
+Reading the steps left to right starting in the middle, then switching
+to reading them right to left going back at the start of the line is unnatural to me.
+Here is the same sequence using *functional-pipeline*. The return operation is implicit.
 
 ```js
 function newDate(a) { return new Date(a); }
