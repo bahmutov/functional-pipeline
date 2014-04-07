@@ -53,11 +53,11 @@ function pipeline(obj) {
 
 ## Why?
 
-Clear code is good code. Functional pipeline makes it easy:
+Clear code is good code. Functional pipeline makes reading code slightly easier:
 
-* Reading chained pipeline left to right is natural
+* Reading chained pipeline left to right is natural.
 * Having no branches (they should be encapsulated inside functions) lowers complexity
-* Compose multiple small functions makes code modular and easy to test
+* Composing multiple small functions makes code easier to test
 
 I especially recommend using functional pipelines for callbacks,
 replacing code with prebuilt and testable pipelines.
@@ -94,6 +94,11 @@ items = _.sortBy(items, fp('latest_event', 'datetime', newDate));
 We had to create a utility function *newDate* to get around JavaScript's `new` keyword.
 You could use my [d3-helpers](https://github.com/bahmutov/d3-helpers) library that
 provides both functional pipeline and a few small utility functions like `newDate`.
+
+## Inspiration
+
+I was inspired by [l33teral](https://github.com/nicholascloud/l33teral) library for
+convenient access to properties deep inside object hierarchy.
 
 ### Small print
 
