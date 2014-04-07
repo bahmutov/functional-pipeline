@@ -62,6 +62,39 @@ Clear code is good code. Functional pipeline makes it easy:
 I especially recommend using functional pipelines for callbacks,
 replacing code with prebuilt and testable pipelines.
 
+Example: lets sort objects in the collection by date nested 2 levels deep. This is
+typical of the code arriving from the back end for example. Below
+each operation I am showing its order in the callback function. The actual
+argument name *item* does not matter.
+
+```js
+items = _.sortBy(items, function(item) {
+  return new Date(item.latest_event.datetime);
+  ------ --------      ------------ --------
+     4      3                1         2
+});
+```
+
+1. Grab `latest_event` property
+2. Grab 'datetime' property
+3. Create new *Date* object from result of the previous step
+4. Return the created date.
+
+Reading the steps starting in the middle left to right, then switching
+to right to left back at the start of the line is unnatural to me. Here is the same
+sequence using *functional-pipeline*. The return operation is implicit.
+
+```js
+function newDate(a) { return new Date(a); }
+items = _.sortBy(items, fp('latest_event', 'datetime', newDate));
+                           --------------  ----------  -------
+                                  1             2         3
+```
+
+We had to create a utility function *newDate* to get around JavaScript's `new` keyword.
+You could use my [d3-helpers](https://github.com/bahmutov/d3-helpers) library that
+provides both functional pipeline and a few small utility functions like `newDate`.
+
 ### Small print
 
 Author: Gleb Bahmutov &copy; 2014
