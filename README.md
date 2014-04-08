@@ -24,7 +24,9 @@ Install and use in browser using bower:
 
 ```
 bower install functional-pipeline
-<script src="bower_components/functional-pipeline/index.js"></script>
+<script src="bower_components/functional-pipeline/fp.js"></script>
+// or
+<script src="bower_components/functional-pipeline/fp-debug.js"></script>
 // attaches as window.fp object
 ```
 
