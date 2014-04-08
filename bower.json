@@ -1,7 +1,7 @@
 {
   "name": "functional-pipeline",
-  "main": "index.js",
-  "version": "0.1.0",
+  "main": "fp.js",
+  "version": "0.2.0",
   "homepage": "https://github.com/bahmutov/functional-pipeline",
   "license": "MIT",
   "ignore": [

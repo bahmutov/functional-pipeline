@@ -98,7 +98,9 @@ provides both functional pipeline and a few small utility functions like `newDat
 ## Inspiration
 
 I was inspired by [l33teral](https://github.com/nicholascloud/l33teral) library for
-convenient access to properties deep inside object hierarchy.
+convenient access to properties deep inside object hierarchy. My second inspiration
+was [Make tests read like a book](http://uxebu.com/blog/2013/01/08/make-tests-read-like-a-book/) by
+Wolfram Kriesing.
 
 ### Small print
 

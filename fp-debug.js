@@ -2,6 +2,8 @@
 
   function assemble() {
 
+    // Creates an optimistic chain, no checks before calling a function
+    // or accessing a property, or calling a method
     function chain() {
       var args = Array.prototype.slice.call(arguments, 0);
       if (args.length) {

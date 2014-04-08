@@ -16,7 +16,8 @@ module.exports = function (config) {
     files: [
       'node_modules/d3/d3.js',
       'node_modules/expect.js/index.js',
-      'index.js',
+      'fp.js',
+      'fp-debug.js',
       'test/*spec.js'
     ],
 
@@ -26,7 +27,7 @@ module.exports = function (config) {
     ],
 
     preprocessors: {
-      'index.js': 'coverage',
+      '*.js': 'coverage',
     },
 
     // test results reporter to use
