@@ -1,7 +1,7 @@
 {
   "name": "functional-pipeline",
   "description": "Quickly chain method calls, property access and functions in natural left to right expression",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "author": "Gleb Bahmutov <gleb.bahmutov@gmail.com>",
   "bugs": {
     "url": "https://github.com/bahmutov/functional-pipeline/issues"
@@ -9,6 +9,7 @@
   "dependencies": {},
   "devDependencies": {
     "coveralls": "^2.10.0",
+    "es5-shim": "^2.3.0",
     "expect.js": "^0.3.1",
     "grunt": "^0.4.4",
     "grunt-banner": "^0.2.2",

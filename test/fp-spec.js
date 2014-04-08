@@ -58,4 +58,25 @@ describe('functional-pipeline', function () {
       expect(fp('self', 'age', add2)(data)).to.equal(12);
     });
   });
+
+  describe('handing errors', function () {
+    it('handles non-existent property or method', function () {
+      var obj = {};
+      expect(fp('foo')(obj)).to.be(undefined);
+    });
+
+    it('tries to call non-existent function', function () {
+      var obj = {};
+      var pipeline = fp(this.foo); // non existing function
+      expect(pipeline.bind(null, obj)).throwError();
+    });
+
+    it('cannot call object on object', function () {
+      expect(function () {
+        fp(triple, add2, {})(5);
+      }).to.throwException(function (e) {
+        expect(e.message).to.contain('Cannot apply');
+      });
+    });
+  });
 });

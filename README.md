@@ -95,6 +95,57 @@ We had to create a utility function *newDate* to get around JavaScript's `new` k
 You could use my [d3-helpers](https://github.com/bahmutov/d3-helpers) library that
 provides both functional pipeline and a few small utility functions like `newDate`.
 
+## Debug mode
+
+Creating chains of calls dynamically using strings instead of
+actual functions makes debugging harder. Functional pipeline has second implementation
+with debugging turned on. This adds stringent checks before calling a method, or
+executing a function or returning a non-existent property. For example:
+
+### Checks during pipeline construction
+
+*functional-pipeline debug* script first performs existance check during pipeline
+construction, making sure every argument is either a string or a valid function.
+If not, a detailed error message is thrown.
+
+```js
+var fp = require('./node_modules/functional-pipeline/fp-debug.js');
+var f = fp('foo', bar); // bar is non existent function
+// throws right away
+Error: Invalid arguments to functional pipeline - not a string or function
+  0: string foo
+  1: undefined argument
+```
+
+### Checks during pipeline execution
+
+There are also checks during pipeline execution, throwing detailed error message
+if something goes wrong. Both the pipeline setup and the original object is
+in the exception's message in addition to the immediate error cause.
+
+```js
+var obj = {
+  bar: {
+    baz: 'baz'
+  }
+};
+var pipeline = fp('bar', 'foo');
+pipeline(obj);
+
+Error: Cannot use property foo from object {
+  "baz": "baz"
+}
+pipeline
+  0: string bar
+  1: string foo
+original object
+{
+  "bar": {
+    "baz": "baz"
+  }
+}
+```
+
 ## Inspiration
 
 I was inspired by [l33teral](https://github.com/nicholascloud/l33teral) library for
