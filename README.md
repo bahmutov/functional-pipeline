@@ -2,6 +2,10 @@
 
 > Quickly chain method calls, property access and functions in natural left to right expression.
 
+It is like [_.invoke](http://lodash.com/docs#invoke) + [_.pluck](http://lodash.com/docs#pluck) +
+[_.compose](http://lodash.com/docs#compose) all rolled into single function.
+
+
 [![NPM][functional-pipeline-icon] ][functional-pipeline-url]
 
 [![Build status][functional-pipeline-ci-image] ][functional-pipeline-ci-url]
