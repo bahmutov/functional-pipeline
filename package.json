@@ -1,7 +1,7 @@
 {
   "name": "functional-pipeline",
   "description": "Quickly chain method calls, property access and functions in natural left to right expression",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "author": "Gleb Bahmutov <gleb.bahmutov@gmail.com>",
   "bugs": {
     "url": "https://github.com/bahmutov/functional-pipeline/issues"

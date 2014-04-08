@@ -22,7 +22,7 @@
 
     // Creates an optimistic chain, no checks before calling a function
     // or accessing a property, or calling a method
-    function chain() {
+    function fp() {
       var args = Array.prototype.slice.call(arguments, 0);
       if (args.length) {
         if (!args.every(isStringOrFunction)) {
@@ -58,7 +58,7 @@
       }
     }
 
-    return chain;
+    return fp;
   }
 
   function register(value, name) {

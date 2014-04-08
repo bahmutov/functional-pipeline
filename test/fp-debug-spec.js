@@ -13,6 +13,7 @@ describe('functional-pipeline debug', function () {
     it('is a function', function () {
       expect(fp).not.to.be(undefined);
       expect(fp).to.be.a('function');
+      expect(fp.name).to.be('fp');
     });
 
     it('has .debug flag', function () {
