@@ -120,7 +120,8 @@ construction, making sure every argument is either a string or a valid function.
 If not, a detailed error message is thrown.
 
 ```js
-var fp = require('./node_modules/functional-pipeline/fp-debug.js');
+global.fpDebug = true;
+var fp = require('functional-pipeline');
 var f = fp('foo', bar); // bar is non existent function
 // throws right away
 Error: Invalid arguments to functional pipeline - not a string or function
