@@ -42,7 +42,11 @@
     }
   }
 
-  var fp = assemble();
-  register(fp, 'fp');
+  if (typeof global === 'object' && global.fpDebug) {
+    module.exports = require('./fp-debug');
+  } else {
+    var fp = assemble();
+    register(fp, 'fp');
+  }
 
 }());

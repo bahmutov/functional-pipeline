@@ -18,6 +18,11 @@ Install and use under Node:
 ```
 npm install functional-pipeline --save
 var fp = require('functional-pipeline');
+// or
+global.fpDebug = true;
+var fp = require('functional-pipeline');
+// loads debug version of functional pipeline with
+// stricter argument checking and better error reporting
 ```
 
 Install and use in browser using bower:

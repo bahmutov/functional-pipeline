@@ -1,7 +1,7 @@
 {
   "name": "functional-pipeline",
   "description": "Quickly chain method calls, property access and functions in natural left to right expression",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "author": "Gleb Bahmutov <gleb.bahmutov@gmail.com>",
   "bugs": {
     "url": "https://github.com/bahmutov/functional-pipeline/issues"
@@ -62,3 +62,4 @@
     "coveralls": "cat coverage/PhantomJS*/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
   }
 }
+
