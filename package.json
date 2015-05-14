@@ -1,7 +1,7 @@
 {
   "name": "functional-pipeline",
   "description": "Quickly chain method calls, property access and functions in natural left to right expression",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "author": "Gleb Bahmutov <gleb.bahmutov@gmail.com>",
   "bugs": {
     "url": "https://github.com/bahmutov/functional-pipeline/issues"
@@ -50,7 +50,8 @@
   "license": "MIT",
   "main": "fp.js",
   "pre-commit": [
-    "npm test"
+    "npm test",
+    "npm version"
   ],
   "repository": {
     "type": "git",
