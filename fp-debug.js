@@ -1,5 +1,20 @@
 (function () {
 
+  // ['a.b.c', 'd'] -> ['a', 'b', 'c', 'd']
+  function splitDots(list) {
+    var result = [];
+    list.forEach(function (x) {
+      if (typeof x === 'string') {
+        x.split('.').forEach(function (part) {
+          result.push(part);
+        });
+      } else {
+        result.push(x);
+      }
+    });
+    return result;
+  }
+
   function assemble() {
 
     function isStringOrFunction(f) {
@@ -31,7 +46,7 @@
             signature);
         }
 
-        var fns = args;
+        var fns = splitDots(args);
         return function (d) {
           var originalObject = d;
           fns.forEach(function (fn) {

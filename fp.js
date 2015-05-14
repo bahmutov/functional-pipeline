@@ -1,5 +1,20 @@
 (function () {
 
+  // ['a.b.c', 'd'] -> ['a', 'b', 'c', 'd']
+  function splitDots(list) {
+    var result = [];
+    list.forEach(function (x) {
+      if (typeof x === 'string') {
+        x.split('.').forEach(function (part) {
+          result.push(part);
+        });
+      } else {
+        result.push(x);
+      }
+    });
+    return result;
+  }
+
   function assemble() {
 
     // Creates an optimistic chain, no checks before calling a function
@@ -7,8 +22,8 @@
     function fp() {
       var args = Array.prototype.slice.call(arguments, 0);
       if (args.length) {
-        var fns = args;
-        return function (d) {
+        var fns = splitDots(args);
+        return function applyPipe(d) {
           fns.forEach(function (fn) {
             if (typeof fn === 'string') {
               if (typeof d[fn] === 'function') {

@@ -62,6 +62,19 @@ function pipeline(obj) {
 }
 ```
 
+You can even use nested paths using '.' separator
+
+```js
+var obj = {
+  a: {
+    b: {
+      c: ['foo', 'bar', 'baz']
+    }
+  }
+};
+fp('a.b.c.1')(obj); // 'bar'
+```
+
 ## Why?
 
 Clear code is good code. Functional pipeline makes reading code slightly easier:

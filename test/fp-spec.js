@@ -5,6 +5,73 @@ if (typeof expect === 'undefined') {
   var expect = require('expect.js');
 }
 
+describe('splitting dot paths in a list', function () {
+  // ['a.b.c', 'd'] -> ['a', 'b', 'c', 'd']
+  function splitDots(list) {
+    var result = [];
+    list.forEach(function (x) {
+      if (typeof x === 'string') {
+        x.split('.').forEach(function (part) {
+          result.push(part);
+        });
+      } else {
+        result.push(x);
+      }
+    });
+    return result;
+  }
+
+  var j = JSON.stringify;
+
+  it('passes the array unchanged if there are no dots', function () {
+    var input = ['a', 'b', 'c'];
+    var result = splitDots(input);
+    expect(j(result)).to.equal(j(input));
+  });
+
+  it('passes the empty array unchanged', function () {
+    var input = [];
+    var result = splitDots(input);
+    expect(j(result)).to.equal(j(input));
+  });
+
+  it('passes the empty strings unchanged', function () {
+    var input = ['a', '', 'b'];
+    var result = splitDots(input);
+    expect(j(result)).to.equal(j(input));
+  });
+
+  it('splits dots', function () {
+    var input = ['a.b'];
+    var result = splitDots(input);
+    expect(j(result)).to.equal(j(['a', 'b']));
+  });
+
+  it('splits multiple arguments', function () {
+    var input = ['a.b', 'c.d'];
+    var result = splitDots(input);
+    expect(j(result)).to.equal(j(['a', 'b', 'c', 'd']));
+  });
+
+  it('splits multiple dots', function () {
+    var input = ['a.b.c.d'];
+    var result = splitDots(input);
+    expect(j(result)).to.equal(j(['a', 'b', 'c', 'd']));
+  });
+
+  it('passes non-strings', function () {
+    var input = ['a.b.c.d', []];
+    var result = splitDots(input);
+    expect(j(result)).to.equal(j(['a', 'b', 'c', 'd', []]));
+  });
+
+  it('returns numbers too', function () {
+    var input = ['a.0.1.d'];
+    var result = splitDots(input);
+    expect(j(result)).to.equal(j(['a', '0', '1', 'd']));
+  });
+});
+
 describe('functional-pipeline', function () {
   function triple(x) { return 3 * x; }
   function add2(x) { return x + 2; }
@@ -25,6 +92,33 @@ describe('functional-pipeline', function () {
         age: '11'
       };
       expect(fp('age', triple, add2)(foo)).to.equal(35);
+    });
+
+    describe('nested property access', function () {
+      var obj = {
+        a: {
+          b: {
+            c: 'foo'
+          }
+        }
+      };
+
+      it('extracts nested properties in turns', function () {
+        expect(fp('a', 'b', 'c')(obj)).to.equal('foo');
+      });
+
+      it('extracts nested properties using single path', function () {
+        expect(fp('a.b.c')(obj)).to.equal('foo');
+      });
+
+      it('extracts single level', function () {
+        expect(fp('a.b')(obj)).to.equal(obj.a.b);
+      });
+
+      it('extracts from arrays', function () {
+        var list = [obj];
+        expect(fp('0.a.b')(list)).to.equal(obj.a.b);
+      });
     });
 
     it('can apply function and extract property', function () {
