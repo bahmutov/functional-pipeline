@@ -165,6 +165,8 @@ convenient access to properties deep inside object hierarchy. My second inspirat
 was [Make tests read like a book](http://uxebu.com/blog/2013/01/08/make-tests-read-like-a-book/) by
 Wolfram Kriesing.
 
+Related: [functional-extract](https://github.com/bahmutov/functional-extract)
+
 ### Small print
 
 Author: Gleb Bahmutov &copy; 2014
