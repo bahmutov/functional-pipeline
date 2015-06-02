@@ -31,6 +31,25 @@ module.exports = function (grunt) {
       }
     },
 
+    concat: {
+      options: {
+        banner: '/**\n' +
+          ' <%= pkg.name %>@<%= pkg.version %>\n' +
+          ' <%= pkg.description %>\n' +
+          ' <%= pkg.author %>\n' +
+          ' <%= pkg.homepage %>\n' +
+          '*/\n\n'
+      },
+      fp: {
+        src: ['fp.js'],
+        dest: 'dist/fp.js'
+      },
+      fpDebug: {
+        src: ['fp-debug.js'],
+        dest: 'dist/fp-debug.js'
+      }
+    },
+
     mochaTest: {
       test: {
         options: {
@@ -74,5 +93,5 @@ module.exports = function (grunt) {
   plugins.forEach(grunt.loadNpmTasks);
 
   grunt.registerTask('test', ['mochaTest', 'karma', 'clean-console']);
-  grunt.registerTask('default', ['deps-ok', 'nice-package', 'sync', 'jshint', 'test']);
+  grunt.registerTask('default', ['deps-ok', 'nice-package', 'sync', 'jshint', 'concat', 'test']);
 };

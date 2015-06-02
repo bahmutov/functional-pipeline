@@ -1,3 +1,10 @@
+/**
+ functional-pipeline@0.3.0
+ Quickly chain method calls, property access and functions in natural left to right expression
+ Gleb Bahmutov <gleb.bahmutov@gmail.com>
+ https://github.com/bahmutov/functional-pipeline
+*/
+
 (function fpInit() {
 
   // ['a.b.c', 'd'] -> ['a', 'b', 'c', 'd']
