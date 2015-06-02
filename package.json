@@ -52,7 +52,8 @@
   "main": "dist/fp.js",
   "pre-commit": [
     "npm test",
-    "npm version"
+    "npm version",
+    "git status"
   ],
   "repository": {
     "type": "git",
