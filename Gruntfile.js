@@ -40,12 +40,7 @@ module.exports = function (grunt) {
           ' <%= pkg.author %>\n' +
           ' <%= pkg.homepage %>\n' +
           '*/\n\n',
-        process: function insertMeta(src) {
-          ['name', 'version', 'description', 'author', 'homepage'].forEach(function (tag) {
-            src = src.replace('%%' + tag, pkg[tag]);
-          });
-          return src;
-        }
+        process: grunt.template.process
       },
       fp: {
         src: ['fp.js'],

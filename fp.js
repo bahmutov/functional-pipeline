@@ -62,11 +62,11 @@
   } else {
     var fp = assemble();
     fp.version = {
-      name: '%%name',
-      version: '%%version',
-      author: '%%author',
-      description: '%%description',
-      homepage: '%%homepage'
+      name: '<%= pkg.name %>',
+      version: '<%= pkg.version %>',
+      author: '<%= pkg.author %>',
+      description: '<%= pkg.description %>',
+      homepage: '<%= pkg.homepage %>'
     };
     register(fp, 'fp');
   }
