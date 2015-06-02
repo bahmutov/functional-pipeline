@@ -62,7 +62,8 @@
   } else {
     var fp = assemble();
     fp.version = {
-      full: '%%version',
+      name: '%%name',
+      version: '%%version',
       author: '%%author',
       description: '%%description',
       homepage: '%%homepage'

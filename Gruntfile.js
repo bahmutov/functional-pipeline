@@ -2,8 +2,9 @@
 module.exports = function (grunt) {
   module.require('time-grunt')(grunt);
 
+  var pkg = grunt.file.readJSON('package.json');
   grunt.initConfig({
-    pkg: grunt.file.readJSON('package.json'),
+    pkg: pkg,
 
     'nice-package': {
       all: {
@@ -38,7 +39,13 @@ module.exports = function (grunt) {
           ' <%= pkg.description %>\n' +
           ' <%= pkg.author %>\n' +
           ' <%= pkg.homepage %>\n' +
-          '*/\n\n'
+          '*/\n\n',
+        process: function insertMeta(src) {
+          ['name', 'version', 'description', 'author', 'homepage'].forEach(function (tag) {
+            src = src.replace('%%' + tag, pkg[tag]);
+          });
+          return src;
+        }
       },
       fp: {
         src: ['fp.js'],

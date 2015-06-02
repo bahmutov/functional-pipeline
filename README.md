@@ -75,6 +75,8 @@ var obj = {
 fp('a.b.c.1')(obj); // 'bar'
 ```
 
+During runtime, detailed meta information is available in the `fp.version` object.
+
 ## Why?
 
 Clear code is good code. Functional pipeline makes reading code slightly easier:

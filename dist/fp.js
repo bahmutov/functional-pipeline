@@ -1,5 +1,5 @@
 /**
- functional-pipeline@0.3.0
+ functional-pipeline@0.4.0
  Quickly chain method calls, property access and functions in natural left to right expression
  Gleb Bahmutov <gleb.bahmutov@gmail.com>
  https://github.com/bahmutov/functional-pipeline
@@ -69,10 +69,11 @@
   } else {
     var fp = assemble();
     fp.version = {
-      full: '%%version',
-      author: '%%author',
-      description: '%%description',
-      homepage: '%%homepage'
+      name: 'functional-pipeline',
+      version: '0.4.0',
+      author: 'Gleb Bahmutov <gleb.bahmutov@gmail.com>',
+      description: 'Quickly chain method calls, property access and functions in natural left to right expression',
+      homepage: 'https://github.com/bahmutov/functional-pipeline'
     };
     register(fp, 'fp');
   }

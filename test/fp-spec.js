@@ -175,3 +175,20 @@ describe('functional-pipeline', function () {
     });
   });
 });
+
+describe('version information', function () {
+  it('has version object', function () {
+    expect(fp.version).to.be.an('object');
+  });
+
+  it('has meta properties', function () {
+    expect(fp.version.name).to.be.a('string');
+    expect(fp.version.description).to.be.a('string');
+  });
+
+  it('has semver', function () {
+    expect(fp.version.version).not.to.contain('%%');
+    var semver = /^\d+\.\d+\.\d+$/;
+    expect(semver.test(fp.version.version)).to.be.ok();
+  });
+});
